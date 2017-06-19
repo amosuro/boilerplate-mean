@@ -1,0 +1,54 @@
+<div class="row">
+  <div class="medium-4 columns">
+    <h3>Add a new Todo</h3>
+    <form ng-submit="Todos.addTodo()">
+      <div>
+        <input type="text" ng-model="Todos.name" placeholder="name..." />
+      </div>
+      <div>
+        <input type="text" ng-model="Todos.note" placeholder="notes..." />
+      </div>
+      <div>
+        <input type="checkbox" id="completed_{{$index}}" ng-model="Todos.completed" />
+        <label for="completed_{{$index}}">Completed?</label>
+      </div>
+      <div>
+        <button class="button">Add</button>
+      </div>
+    </form>
+    <a ui-sref="home">Go to back home</a>
+  </div>
+  <div class="medium-8 columns">
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Note</th>
+          <th>Completed</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="todo in Todos.todos">
+          <td>{{todo.name}}</td>
+          <td>{{todo.note}}</td>
+          <td>
+            <span ng-if="todo.completed" class="success badge">&nbsp;</span>
+            <span ng-if="todo.completed == false" class="alert badge">&nbsp;</span>
+          </td>
+          <td>
+            <button class="button alert tiny" ng-click="Todos.deleteTodo($index)">Delete</button>
+          </td>
+        </tr>
+        <tr ng-if="Todos.name.length">
+          <td>{{Todos.name}}</td>
+          <td>{{Todos.note}}</td>
+          <td>{{Todos.completed}}</td>
+          <td>
+            <button class="button alert tiny" ng-click="Todos.deleteTodo($index)">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

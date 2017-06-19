@@ -1,0 +1,16 @@
+// Third Party
+@import 'normalize';
+
+// Foundation
+@import 'foundation';
+@include foundation-everything;
+
+@import 'variables';
+@import 'mixins';
+@import 'typography';
+
+// Core components
+@import './app/components/core/header/header';
+
+// View components
+// @import './app/components/component_name/component_name';
